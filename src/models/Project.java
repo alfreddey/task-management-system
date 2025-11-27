@@ -1,11 +1,11 @@
 package models;
 
 public abstract class Project {
-    protected int id;
+    protected static int index;
     protected String name;
 
     public int getId() {
-        return this.id;
+        return index;
     };
 
     public String getName() {
@@ -14,9 +14,5 @@ public abstract class Project {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 }

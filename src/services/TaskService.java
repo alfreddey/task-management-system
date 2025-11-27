@@ -1,8 +1,9 @@
 package services;
 import models.Project;
+import models.Task;
 
 public class TaskService {
-//    private Task[] projectTasks;
+    private Task[] projectTasks;
 //    public void addToProject(Task task, Project project) {};
 //    public void addTasksToProjects(Task[] tasks, Project[] projects) {};
 //    public void setTaskStatus(int taskId, String status) {};

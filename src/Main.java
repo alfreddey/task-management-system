@@ -1,8 +1,14 @@
+import models.RegularUser;
 import models.SoftwareProject;
+import test.ObjectCreationTest;
+import utils.ConsoleMenu;
 
 public class Main {
+    public static void test() {
+        ObjectCreationTest.createSoftwareProject();
+    }
+
     public static void main(String[] args) {
-        var mySfPr = new SoftwareProject(10, "I am tired");
-        System.out.println(mySfPr.getName());
+        test();
     }
 }
