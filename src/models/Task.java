@@ -2,43 +2,69 @@ package models;
 
 import interfaces.Completable;
 
+import java.util.Date;
+
 public class Task implements Completable {
+    protected static int index;
+    private TaskStatus status = TaskStatus.PENDING;
     private String id;
     private String name;
-    private int projectId;
-    protected static int index;
-    protected TaskStatus status = TaskStatus.PENDING;
+    private String projectId;
+    private Date hour;
 
-    public Task(int projectId, String name, TaskStatus status) {
-        this.name = name;
-        this.status = status;
+    // Constructors
+    public Task(String projectId) {
+        index = index + 1;
+        this.id = String.format("TSK%03d", index);
         this.projectId = projectId;
     }
 
-    public Task(int projectId, String name) {
+    public Task(String projectId, String name) {
+        index = index + 1;
+        this.id = String.format("TSK%03d", index);
         this.projectId = projectId;
         this.name = name;
     }
 
     public Task() {};
 
+
+    // Helper functions
     @Override
     public String toString() {
-        return String.format("Name: %s | Status: %s | ProjectID: %d", this.name, this.status, this.projectId);
+        return String.format(
+                "\n\tID: %s\n\tName: %s\n\tStatus: %s\n\tProjectID: %s\n",
+                this.id,
+                this.name,
+                this.status,
+                this.projectId
+        );
     }
+
+    public boolean exists() {
+        return !id.isEmpty();
+    }
+
 
     // Getters
     public String getId() {
         return id;
     }
 
-    public void getStatus() {};
+    public TaskStatus getStatus() {
+        return status;
+    };
 
 
     // Setters
-    public void setProjectId(int projectId) {
+    public void setStatus(TaskStatus status) {
+        this.status = status;
+    }
+
+    public void setProjectId(String projectId) {
         this.projectId = projectId;
     }
+
 
     // Interface methods
     public boolean isCompleted() {

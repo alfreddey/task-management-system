@@ -7,8 +7,8 @@ import models.TaskStatus;
 
 public class ObjectCreationTest {
     public static void createSoftwareProject() {
-        var mypr = new SoftwareProject("Hello", ProjectType.SOFTWARE);
+        var mypr = new SoftwareProject("Hello");
         System.out.println(mypr.getName());
-        System.out.println(mypr.getType());
+        System.out.println(mypr.getId());
     }
 }

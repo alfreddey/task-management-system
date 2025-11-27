@@ -5,8 +5,8 @@ public class RegularUser extends User {
     private int[] projectIds;
     private final UserRole role = UserRole.REGULAR;
 
-    public RegularUser(int id, String name) {
-        index = index + 1;
+    public RegularUser(String name) {
+        index = index + 1;  // Assign userID
         this.name = name;
     }
 
