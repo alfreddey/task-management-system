@@ -2,11 +2,8 @@ import models.AdminUser;
 import models.RegularUser;
 import models.UserRole;
 import services.UserService;
-
 import java.util.ArrayList;
 import java.util.Scanner;
-
-import static utils.ConsoleMenu.displayMainMenu;
 import static utils.Util.*;
 
 public class Main {
@@ -89,34 +86,50 @@ public class Main {
         mainMenuList.add("Switch Users");
         mainMenuList.add("Exit");
 
-        // Display main menu items
+        // Display main menu title
         displayProjectTitle("JAVA TASK MANAGEMENT SYSTEM");
         System.out.printf("Current User: %s (%s)\n", user.getName(), user.getRole());
-        displayMenus("Main Menu:", mainMenuList);
-        System.out.print("Enter your choice: ");
 
-        // Read and handle user input
-        var option = scanner.nextInt();
-        switch (option) {
-            case 1:
-                // Manage projects
-                break;
-            case 2:
-                // Manage tasks
-                break;
-            case 3:
-                // View status reports
-                break;
-            case 4:
-                // Switch user
-                break;
-            case 5:
-                // Exit
-                break;
-        }
+        // Display main menu items
+        boolean running = true;
+        do {
+            displayMenus("Main Menu:", mainMenuList);
+            System.out.print("Enter your choice: ");
+
+            // Read and handle user input
+            var option = scanner.nextInt();
+            switch (option) {
+                case 1:
+                    // Manage projects
+                    break;
+                case 2:
+                    // Manage tasks
+                    break;
+                case 3:
+                    // View status reports
+                    break;
+                case 4:
+                    // Switch user
+                    break;
+                case 5:
+                    running = false;
+                    System.out.println("Exited successfully");
+                    break;
+                default:
+                    System.out.println("\nInvalid choice. Please try again.\n");
+            }
+        } while (running);
+
+        scanner.close();
     }
 
-    public static void manageProjects() {
+    public static void manageProjectsMenu(Scanner scanner) {
 
     }
+
+    public static void manageTasksMenu() {};
+
+    public static void viewStatusReportsMenu() {};
+
+    public static void switchUserMenu() {};
 }
