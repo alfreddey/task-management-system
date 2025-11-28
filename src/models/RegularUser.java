@@ -10,6 +10,10 @@ public class RegularUser extends User {
         this.name = name;
     }
 
+    public RegularUser() {
+        index = index + 1;
+    }
+
     public UserRole getRole() {
         return role;
     }

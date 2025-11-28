@@ -2,8 +2,8 @@ package models;
 
 public abstract class User {
     protected static int index;
+    protected String email;   // Required field
     protected String name;
-    protected String email;
     protected UserRole role;
 
     // Getters
