@@ -1,6 +1,9 @@
 package utils;
 
+import models.UserRole;
+
 public class ConsoleMenu {
-    public static void displayMenus() {
+    public static void displayMainMenu() {
+
     }
 }

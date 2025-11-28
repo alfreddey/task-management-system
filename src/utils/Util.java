@@ -1,9 +1,14 @@
 package utils;
 
 public class Util {
-    public static void drawBox(String title) {
-        final int titleLen = title.length();
+    public static void displayProjectTitle(String title) {
+        String line = "+" + "-".repeat(title.length() + 2) + "+";
+        System.out.println("\n" + line);
+        System.out.println("| " + title + " |");
+        System.out.println(line + "\n");
+    }
 
-        System.out.println("-".repeat(titleLen * 2));
+    public static String colorString(String str) {
+        return "\u001B[33m" + str + "\u001B[0m";
     }
 }
