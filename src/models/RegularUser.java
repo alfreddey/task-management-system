@@ -6,9 +6,11 @@ public class RegularUser extends User {
     private final UserRole role = UserRole.REGULAR;
 
     public RegularUser(String name) {
-        index = index + 1;  // Assign userID
+        index = index + 1;
         this.name = name;
     }
+
+
 
     public RegularUser() {
         index = index + 1;

@@ -1,24 +1,18 @@
-import com.sun.security.jgss.GSSUtil;
 import models.AdminUser;
 import models.RegularUser;
-import models.User;
 import models.UserRole;
 import services.UserService;
-import test.ObjectCreationTest;
-import test.TaskTest;
+
+import java.util.ArrayList;
 import java.util.Scanner;
 
-import static utils.Util.colorString;
-import static utils.Util.displayProjectTitle;
+import static utils.ConsoleMenu.displayMainMenu;
+import static utils.Util.*;
 
 public class Main {
-    public static void test() {
-        ObjectCreationTest.createSoftwareProject();
-        TaskTest.addTaskToProject();
-    }
-
     public static void main(String[] args) {
-        displayProjectTitle("JAVA PROJECT MANAGEMENT SYSTEM");
+        // TODO: Seed users
+        displayProjectTitle("SIGN IN / REGISTER");
 
         // Sign-in user
         var userService = UserService.getService();
@@ -59,7 +53,8 @@ public class Main {
                     } else if (role.equals("Q")){
                         System.out.println("Exiting program");
                     }
-                } while ( // Repeat while user input is not (R, A, or Q)
+                } while (
+                        // Repeat while user input is not (R, A, or Q)
                         !role.equals("R")
                         && !role.equals("A")
                         && !role.equals("Q")
@@ -86,11 +81,42 @@ public class Main {
             user = userService.signIn(userEmail);
         }
 
+        // Create main menu items
+        ArrayList<String> mainMenuList = new ArrayList<>();
+        mainMenuList.add("Manage Projects");
+        mainMenuList.add("Manage Tasks");
+        mainMenuList.add("View Status Reports");
+        mainMenuList.add("Switch Users");
+        mainMenuList.add("Exit");
 
-        // Display current user's name
-        System.out.printf("\nCurrent User: %s (%s)", user.getName(), user.getRole());
         // Display main menu items
+        displayProjectTitle("JAVA TASK MANAGEMENT SYSTEM");
+        System.out.printf("Current User: %s (%s)\n", user.getName(), user.getRole());
+        displayMenus("Main Menu:", mainMenuList);
+        System.out.print("Enter your choice: ");
 
-        // Ask and read user's menu option/choice
+        // Read and handle user input
+        var option = scanner.nextInt();
+        switch (option) {
+            case 1:
+                // Manage projects
+                break;
+            case 2:
+                // Manage tasks
+                break;
+            case 3:
+                // View status reports
+                break;
+            case 4:
+                // Switch user
+                break;
+            case 5:
+                // Exit
+                break;
+        }
+    }
+
+    public static void manageProjects() {
+
     }
 }
