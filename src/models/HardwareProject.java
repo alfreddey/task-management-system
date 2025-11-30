@@ -1,14 +1,26 @@
 package models;
 
-import interfaces.Completable;
+import java.util.HashMap;
 
-public class HardwareProject implements Completable {
-    private String description;
-    private int teamSize;
-    private int budget;
-    private int completionRate;
-    private ProjectType type;
-    private Task[] tasks;
+public class HardwareProject extends Project {
+    private double materialCost;
 
-    public boolean isCompleted() { return true; };
+    public HardwareProject(String name, String description, int teamSize, double budget) {
+        super(name, description, teamSize, budget, ProjectType.HARDWARE);
+        this.materialCost = 0;
+    }
+
+    public double getMaterialCost() {
+        return materialCost;
+    }
+
+    public void setMaterialCost(double materialCost) {
+        this.materialCost = materialCost;
+    }
+
+    @Override
+    public HashMap<String, String> getProjectDetails() {
+        // TODO Auto-generated method stub
+        return null;
+    }
 }

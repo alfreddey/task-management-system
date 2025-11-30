@@ -2,16 +2,17 @@ package services;
 
 import models.User;
 
-import java.util.ArrayList;
-
 public class UserService {
     private static UserService service;
-    private ArrayList<User> users = new ArrayList<>();
+    private final int MAX_USERS = 999;
+    private int userCount;
+    private User[] users;
 
-    // Constructors
-    private UserService() {};
+    private UserService() {
+        this.users = new User[MAX_USERS];
+        this.userCount = 0;
+    }
 
-    // Static methods
     public static UserService getService() {
         if (service == null) {
             service = new UserService();
@@ -20,36 +21,22 @@ public class UserService {
         return service;
     }
 
-    // Object Methods
-    public User signIn(String email) {
-        if (email.isEmpty()) {
-            System.out.println("\nEmail is empty");
-            return null;
+    public void createUser(User user) {
+        if (userCount >= MAX_USERS - 1) {
+            System.out.println("User array is full");
+            return;
         }
 
-        // Return null, if users list is empty
-        if (users.isEmpty()) {
-            System.out.println("List is empty. Register users to populate it");
-            return null;
-        }
+        users[userCount++] = user;
+    }
 
-        // Search by email
-        for (var user : users) {
+    public User findUserByEmail(String email) {
+        for (User user : users) {
             if (user.getEmail().equals(email)) {
                 return user;
             }
         }
 
         return null;
-    };
-
-    public User register(User user) {
-        if (user == null) {
-            System.out.println("\nInvalid user. Received null");
-            return null;
-        }
-
-        users.add(user);
-        return null;
-    };
+    }
 }

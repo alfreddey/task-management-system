@@ -3,18 +3,18 @@ package utils;
 import java.util.ArrayList;
 
 public class Util {
-    public static void displayProjectTitle(String title) {
-        String line = "+" + "-".repeat(title.length() + 2) + "+";
-        System.out.println("\n" + line);
-        System.out.println("| " + title + " |");
-        System.out.println(line + "\n");
+    public static void displayError(String message) {
+        System.out.println("\n[ERROR]");
+        System.out.println("----");
+        System.out.println(message);
+        System.out.println("----");
     }
 
     public static String colorString(String str) {
         return "\u001B[33m" + str + "\u001B[0m";
     }
 
-    public static void displayMenus(String heading, ArrayList<String> menus) {
+    public static void displayMenu(String heading, ArrayList<String> menus) {
         System.out.println("\n" + heading);
         System.out.println("-".repeat(heading.length()));
         for (int i = 0; i < menus.size(); i++) {
